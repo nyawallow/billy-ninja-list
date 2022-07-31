@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import styles from '../../styles/Ninjas.module.css'
+
 export const getStaticPaths = async () => {
     const res = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await res.json()
@@ -31,6 +34,12 @@ const Details = ({ ninja }) => {
             <p>Email: { ninja.email }</p>
             <p>Website: { ninja.website }</p>
             <p>City: { ninja.address.city }</p>
+
+            <Link href="/ninjas">
+                <a className={styles.btn}>
+                    Back To Ninja List
+                </a>
+            </Link>
         </div>
      );
 }
